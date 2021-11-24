@@ -32,7 +32,7 @@ program
 
     const obj = {};
 
-    for (let [key, value] of Object.entries(file1JSON)) {
+    /*for (let [key, value] of Object.entries(file1JSON)) {
         if (!_.has(obj, key)) {
             obj[key] = [value];
         } else {
@@ -46,8 +46,14 @@ program
         } else {
             obj[key].push(value)
         }
-    }
-    
+    }*/
+
+    const customizer = (objValue, srcValue) => {
+        return objValue + srcValue;
+    };
+
+    const test1 = _.mergeWith(file1JSON, file2JSON, customizer);
+    console.log(test1);
     console.log(obj)
 });
 
