@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
+import module from 'path';
 const program = new Command();
 
 program.configureHelp({
@@ -20,5 +21,7 @@ program
   });
 
 program.parse();
+
+const fs = import('fs');
 
 
