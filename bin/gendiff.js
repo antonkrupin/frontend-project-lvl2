@@ -16,6 +16,7 @@ program
   .action((pathToFile1, pathToFile2) => {
     console.log('pathToFile1:', pathToFile1);
     console.log('pathToFile2:', pathToFile2);
+    console.log(process.cwd())
   });
 
 program.parse();
