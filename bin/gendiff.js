@@ -11,7 +11,13 @@ program
   .option('-V, --version', 'output the version number')
   .helpOption('-h, --help', 'output usage information')
   .option('-f, --format', 'output format')
-  .argument('<pathToFile 1>', 'enter path to file 1')
-  .argument('<pathToFile 2>', 'enter path to file 2');
+  .argument('<pathToFile1>', 'enter path to file 1')
+  .argument('<pathToFile2>', 'enter path to file 2')
+  .action((pathToFile1, pathToFile2) => {
+    console.log('pathToFile1:', pathToFile1);
+    console.log('pathToFile2:', pathToFile2);
+  });
 
 program.parse();
+
+
