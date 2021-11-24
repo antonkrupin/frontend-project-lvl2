@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
 import { readFileSync } from 'fs';
+import _ from 'lodash';
+
 const program = new Command();
 
 const readFile = (pathToFile) => {
