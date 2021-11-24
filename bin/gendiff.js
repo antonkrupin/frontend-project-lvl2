@@ -28,8 +28,13 @@ program
     const file1JSON = JSON.parse(readFile(pathToFile1))
     const file2JSON = JSON.parse(readFile(pathToFile2))
 
+    const obj = {};
+
+    for (let [keys, values] in Object.entries(file1JSON)) {
+        console.log(test)
+    }
     
-  });
+});
 
 program.parse();
 
