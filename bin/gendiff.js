@@ -32,21 +32,18 @@ program
 
     const obj = {};
 
-    for (let [key, value] of Object.entries(file1JSON)) {
-        if (!_.has(obj, key)) {
-            obj[key] = [value];
-        } else {
-            obj[key].push(value)
+    const pushToObject = (object, obj) => {
+        for (let [key, value] of Object.entries(object)) {
+            if (!_.has(obj, key)) {
+                obj[key] = [value];
+            } else {
+                obj[key].push(value)
+            }
         }
-    }
+    };
 
-    for (let [key, value] of Object.entries(file2JSON)) {
-        if (!_.has(obj, key)) {
-            obj[key] = [value];
-        } else {
-            obj[key].push(value)
-        }
-    }
+    pushToObject(file1JSON, obj);
+    pushToObject(file2JSON, obj);
 
     console.log(obj)
 });
