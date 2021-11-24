@@ -24,11 +24,9 @@ program
   .argument('<pathToFile1>', 'enter path to file 1')
   .argument('<pathToFile2>', 'enter path to file 2')
   .action((pathToFile1, pathToFile2) => {        
-    const file1 = readFile(pathToFile1);
-    const file2 = readFile(pathToFile2);
-    
-    const file1JSON = JSON.parse(file1)
-    const file2JSON = JSON.parse(file2)
+          
+    const file1JSON = JSON.parse(readFile(pathToFile1))
+    const file2JSON = JSON.parse(readFile(pathToFile2))
 
     console.log(file1JSON)
     console.log(file2JSON)
