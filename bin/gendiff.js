@@ -49,7 +49,7 @@ program
         }
     }
 
-    console.log(diffArray)
+    return diffArray.join('\n');
 });
 
 program.parse();
