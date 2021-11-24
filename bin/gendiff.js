@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
-import module from 'path';
+import { readFileSync } from 'fs';
 const program = new Command();
 
 program.configureHelp({
@@ -17,7 +17,19 @@ program
   .action((pathToFile1, pathToFile2) => {
     console.log('pathToFile1:', pathToFile1);
     console.log('pathToFile2:', pathToFile2);
-    console.log(process.cwd())
+    const pathToFile = process.cwd();
+    
+    const test1 = readFileSync(pathToFile, 'utf-8', (err, data) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        console.log(data)
+    });
+    console.log('_________')
+    const test2 = JSON.parse(test1)
+
+    console.log(test2)
   });
 
 program.parse();
