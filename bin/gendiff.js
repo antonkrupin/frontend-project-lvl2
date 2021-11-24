@@ -26,30 +26,30 @@ program
             }
         });
     };
-    /*
-    const pushToObject = (object, obj) => {
-        for (let [key, value] of Object.entries(object)) {
-            if (!_.has(obj, key)) {
-                obj[key] = [value];
-            } else {
-                obj[key].push(value)
-            }
-        }
-    };*/
 
     const file1JSON = JSON.parse(readFile(pathToFile1))
     const file2JSON = JSON.parse(readFile(pathToFile2))
 
-    //const obj = {};
+    const keysUnion = _.union(Object.keys(file1JSON), Object.keys(file2JSON)).sort();
 
-    const keysArray = _.union(Object.keys(file1JSON), Object.keys(file2JSON));
+    const diffArray = [];
 
-    console.log(keysArray)
-    /*
-    pushToObject(file1JSON, obj);
-    pushToObject(file2JSON, obj);
+    for (let el of keysUnion) {
+        if (_.has(file1JSON, el) && _.has(file2JSON, el)) {
+            if (file1JSON[el] === file2JSON[el]) {
+                diffArray.push('  ' + el + ': ' + file1JSON[el])
+            } else {
+                diffArray.push('- ' + el + ': ' + file1JSON[el]);
+                diffArray.push('+ ' + el + ': ' + file2JSON[el]);
+            }
+        } else if (_.has(file1JSON, el)) {
+            diffArray.push('- ' + el + ': ' + file1JSON[el]);
+        } else if (_.has(file2JSON, el)) {
+            diffArray.push('+ ' + el + ': ' + file2JSON[el]);
+        }
+    }
 
-    console.log(obj)*/
+    console.log(diffArray)
 });
 
 program.parse();
