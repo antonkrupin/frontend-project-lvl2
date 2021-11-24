@@ -3,6 +3,15 @@ import { Command } from 'commander';
 import { readFileSync } from 'fs';
 const program = new Command();
 
+const readFile = (pathToFile) => {
+    return readFileSync(pathToFile, 'utf-8', (err, data) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+    });
+};
+
 program.configureHelp({
     sortOptions: false,
 });
@@ -14,26 +23,16 @@ program
   .option('-f, --format', 'output format')
   .argument('<pathToFile1>', 'enter path to file 1')
   .argument('<pathToFile2>', 'enter path to file 2')
-  .action((pathToFile1, pathToFile2) => {
-    console.log('pathToFile1:', pathToFile1);
-    console.log('pathToFile2:', pathToFile2);
-    const pathToFile = process.cwd();
+  .action((pathToFile1, pathToFile2) => {        
+    const file1 = readFile(pathToFile1);
+    const file2 = readFile(pathToFile2);
     
-    const test1 = readFileSync(pathToFile, 'utf-8', (err, data) => {
-        if (err) {
-            console.log(err);
-            return;
-        }
-        console.log(data)
-    });
-    console.log('_________')
-    const test2 = JSON.parse(test1)
+    const file1JSON = JSON.parse(file1)
+    const file2JSON = JSON.parse(file2)
 
-    console.log(test2)
+    console.log(file1JSON)
+    console.log(file2JSON)
   });
 
 program.parse();
-
-const fs = import('fs');
-
 
