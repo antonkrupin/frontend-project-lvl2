@@ -32,10 +32,23 @@ program
 
     const obj = {};
 
-    for (let [keys, values] in Object.entries(file1JSON)) {
-        console.log(test)
+    for (let [key, value] of Object.entries(file1JSON)) {
+        if (!_.has(obj, key)) {
+            obj[key] = [value];
+        } else {
+            obj[key].push(value)
+        }
+    }
+
+    for (let [key, value] of Object.entries(file2JSON)) {
+        if (!_.has(obj, key)) {
+            obj[key] = [value];
+        } else {
+            obj[key].push(value)
+        }
     }
     
+    console.log(obj)
 });
 
 program.parse();
