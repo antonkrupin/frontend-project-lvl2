@@ -1,6 +1,4 @@
-//import gendiffString from "../src/gendiff-src.js";
-
-import gendiffString from "../src/gendiff-src";
+import gendiffString from "../src/gendiff-src.js";
 
 test('gendiffString', () => {
     const path1 = 'file1.json';
