@@ -30,6 +30,8 @@ const gendiffString = (path1, path2) => {
     const file2JSON = JSON.parse(readFile(path2))
 
     const sortedKeysUnion = _.union(Object.keys(file1JSON), Object.keys(file2JSON)).sort();
+    //const test = ['- follow: false', '  host: hexlet.io', '- proxy: 123.234.53.22', '- timeout: 50', '+ timeout: 20', '+ verbose: true'];
+    const test2 = findDiff(sortedKeysUnion, file1JSON, file2JSON);
     
     return findDiff(sortedKeysUnion, file1JSON, file2JSON);
 };
