@@ -10,13 +10,8 @@ const readFile = (pathToFile) => {
     });
 };
 
-const gendiff = (path1, path2) => {
-    const file1JSON = JSON.parse(readFile(path1))
-    const file2JSON = JSON.parse(readFile(path2))
-
-    const sortedKeysUnion = _.union(Object.keys(file1JSON), Object.keys(file2JSON)).sort();
-
-    const diffArray = sortedKeysUnion.map((el) => {
+const findDiff = (sortedKeys, file1JSON, file2JSON) => {
+    return sortedKeys.map((el) => {
         if (_.has(file1JSON, el) && _.has(file2JSON, el)) {
             if (file1JSON[el] === file2JSON[el]) {
                 return ('  ' + el + ': ' + file1JSON[el])
@@ -29,8 +24,15 @@ const gendiff = (path1, path2) => {
             return ('+ ' + el + ': ' + file2JSON[el]);
         }
     });
+};
 
-    return diffArray.join('\n');
+const gendiff = (path1, path2) => {
+    const file1JSON = JSON.parse(readFile(path1))
+    const file2JSON = JSON.parse(readFile(path2))
+
+    const sortedKeysUnion = _.union(Object.keys(file1JSON), Object.keys(file2JSON)).sort();
+
+    return findDiff(sortedKeysUnion, file1JSON, file2JSON).join('\n');
 };
 
 export default gendiff;
