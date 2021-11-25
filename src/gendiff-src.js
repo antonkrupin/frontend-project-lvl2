@@ -26,7 +26,7 @@ const findDiff = (sortedKeys, file1JSON, file2JSON) => {
     });
 };
 
-const gendiff = (path1, path2) => {
+const gendiffString = (path1, path2) => {
     const file1JSON = JSON.parse(readFile(path1))
     const file2JSON = JSON.parse(readFile(path2))
 
@@ -35,4 +35,4 @@ const gendiff = (path1, path2) => {
     return findDiff(sortedKeysUnion, file1JSON, file2JSON).join('\n');
 };
 
-export default gendiff;
+export default gendiffString;

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
-import gendiff from '../src/gendiff-src.js';
+import gendiffString from '../src/gendiff-src.js';
 
 const program = new Command();
 
@@ -16,7 +16,7 @@ program
   .argument('<pathToFile1>', 'enter path to file 1')
   .argument('<pathToFile2>', 'enter path to file 2')
   .action((pathToFile1, pathToFile2) => {        
-    console.log(gendiff(pathToFile1, pathToFile2));
+    console.log(gendiffString(pathToFile1, pathToFile2));
 });
 
 program.parse();
