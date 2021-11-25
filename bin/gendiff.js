@@ -32,23 +32,6 @@ program
 
     const keysUnion = _.union(Object.keys(file1JSON), Object.keys(file2JSON)).sort();
 
-    //const diffArray = [];
-
-    /*for (let el of keysUnion) {
-        if (_.has(file1JSON, el) && _.has(file2JSON, el)) {
-            if (file1JSON[el] === file2JSON[el]) {
-                diffArray.push('  ' + el + ': ' + file1JSON[el])
-            } else {
-                diffArray.push('- ' + el + ': ' + file1JSON[el]);
-                diffArray.push('+ ' + el + ': ' + file2JSON[el]);
-            }
-        } else if (_.has(file1JSON, el)) {
-            diffArray.push('- ' + el + ': ' + file1JSON[el]);
-        } else if (_.has(file2JSON, el)) {
-            diffArray.push('+ ' + el + ': ' + file2JSON[el]);
-        }
-    }*/
-
     const diffArray = keysUnion.map((el) => {
         if (_.has(file1JSON, el) && _.has(file2JSON, el)) {
             if (file1JSON[el] === file2JSON[el]) {
