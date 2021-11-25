@@ -14,15 +14,14 @@ const findDiff = (sortedKeys, file1JSON, file2JSON) => {
     return sortedKeys.map((el) => {
         if (_.has(file1JSON, el) && _.has(file2JSON, el)) {
             if (file1JSON[el] === file2JSON[el]) {
-                return ('  ' + el + ': ' + file1JSON[el])
-            } else {
-                return ([('- ' + el + ': ' + file1JSON[el]), ('+ ' + el + ': ' + file2JSON[el])].join('\n'))
+                return ('  ' + el + ': ' + file1JSON[el]);
             }
-        } else if (_.has(file1JSON, el)) {
-            return ('- ' + el + ': ' + file1JSON[el]);
-        } else if (_.has(file2JSON, el)) {
-            return ('+ ' + el + ': ' + file2JSON[el]);
+            return ([('- ' + el + ': ' + file1JSON[el]), ('+ ' + el + ': ' + file2JSON[el])].join('\n'));
         }
+        if (_.has(file1JSON, el)) {
+            return ('- ' + el + ': ' + file1JSON[el]);
+        }
+        return ('+ ' + el + ': ' + file2JSON[el]);
     });
 };
 
