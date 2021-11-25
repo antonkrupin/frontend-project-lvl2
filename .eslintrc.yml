@@ -3,6 +3,6 @@ env:
   es2021: true
 extends: eslint:recommended
 parserOptions:
-  ecmaVersion: 13
+  ecmaVersion: 12
   sourceType: module
 rules: {}
