@@ -30,8 +30,8 @@ const gendiffString = (path1, path2) => {
     const file2JSON = JSON.parse(readFile(path2))
 
     const sortedKeysUnion = _.union(Object.keys(file1JSON), Object.keys(file2JSON)).sort();
-
-    return findDiff(sortedKeysUnion, file1JSON, file2JSON).join('\n');
+    
+    return findDiff(sortedKeysUnion, file1JSON, file2JSON);
 };
 
 export default gendiffString;
