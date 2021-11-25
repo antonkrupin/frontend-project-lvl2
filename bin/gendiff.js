@@ -30,9 +30,9 @@ program
     const file1JSON = JSON.parse(readFile(pathToFile1))
     const file2JSON = JSON.parse(readFile(pathToFile2))
 
-    const keysUnion = _.union(Object.keys(file1JSON), Object.keys(file2JSON)).sort();
+    const sortedKeysUnion = _.union(Object.keys(file1JSON), Object.keys(file2JSON)).sort();
 
-    const diffArray = keysUnion.map((el) => {
+    const diffArray = sortedKeysUnion.map((el) => {
         if (_.has(file1JSON, el) && _.has(file2JSON, el)) {
             if (file1JSON[el] === file2JSON[el]) {
                 return ('  ' + el + ': ' + file1JSON[el])
