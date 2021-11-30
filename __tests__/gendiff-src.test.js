@@ -20,3 +20,13 @@ test('gendiffString_equalFiles', () => {
     const test = ['  follow: false', '  host: hexlet.io', '  proxy: 123.234.53.22', '  timeout: 50'].join('\n');
     expect(gendiffString(file1, file2).join('\n')).toEqual(test);
 });
+
+test('gendiffString_fullNonEqualFiles', () => {
+    onst path1 = 'fullNonEqualFile1.json';
+    const path2 = 'fullNonEqualFile2.json';
+    const getFixturePath = (filename) => path.join('..', '__fixtures__', filename);
+    const file1 = getFixturePath(path1);
+    const file2 = getFixturePath(path2);
+    const test = ['+ follow: false', '+ proxy: 123.234.53.22', '- timeout: 50', '- verbose: true'].join('\n')
+    expect(gendiffString(file1, file2).join('\n')).toEqual(test);
+});
