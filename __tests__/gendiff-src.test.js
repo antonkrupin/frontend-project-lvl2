@@ -1,7 +1,7 @@
 import gendiffString from "../src/gendiff-src.js";
 import path from 'path';
 
-test('gendiffString_nonEqualFiles', () => {
+test('gendiffString_partialNonEqualFiles', () => {
     const path1 = 'file1.json';
     const path2 = 'file2.json';
     const getFixturePath = (filename) => path.join('..', '__fixtures__', filename);
