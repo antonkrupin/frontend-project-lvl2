@@ -22,7 +22,7 @@ test('gendiffString_equalFiles', () => {
 });
 
 test('gendiffString_fullNonEqualFiles', () => {
-    onst path1 = 'fullNonEqualFile1.json';
+    const path1 = 'fullNonEqualFile1.json';
     const path2 = 'fullNonEqualFile2.json';
     const getFixturePath = (filename) => path.join('..', '__fixtures__', filename);
     const file1 = getFixturePath(path1);
