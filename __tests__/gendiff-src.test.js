@@ -12,8 +12,8 @@ test('gendiffString_nonEqualFiles', () => {
 });
 
 test('gendiffString_equalFiles', () => {
-    const path1 = 'file3.json';
-    const path2 = 'file4.json';
+    const path1 = 'equalFile1.json';
+    const path2 = 'equalFile2.json';
     const getFixturePath = (filename) => path.join('..', '__fixtures__', filename);
     const file1 = getFixturePath(path1);
     const file2 = getFixturePath(path2);
