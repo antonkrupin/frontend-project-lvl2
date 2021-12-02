@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { getFileExtension, readFile, parseFile } from './parsers.js';
+import { getFileExtension, parseFile } from './parsers.js';
 
 const findDiff = (sortedKeys, file1JSON, file2JSON) => {
     return sortedKeys.map((el) => {
