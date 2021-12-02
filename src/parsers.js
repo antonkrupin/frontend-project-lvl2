@@ -16,10 +16,10 @@ const readFile = (pathToFile) => {
 
 const parseFile = (file, fileExtension) => {
     if (fileExtension === 'json') {
-        return JSON.parse(readFile(file))
+        return JSON.parse(readFile(file));
     }
     if (fileExtension === 'yml' || fileExtension === 'yaml') {
-        return _.load(readFile(file))
+        return _.load(readFile(file));
     }
 };
 
