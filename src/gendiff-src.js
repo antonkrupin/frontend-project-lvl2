@@ -1,18 +1,5 @@
-import { readFileSync } from 'fs';
 import _ from 'lodash';
-
-const getFileExtension = (fileName) => {
-    return fileName.split('.').pop();
-};
-
-const readFile = (pathToFile) => {
-    return readFileSync(pathToFile, 'utf-8', (err) => {
-        if (err) {
-            console.log(err);
-            return;
-        }
-    });
-};
+import { getFileExtension, readFile, parseFile } from './parsers.js';
 
 const findDiff = (sortedKeys, file1JSON, file2JSON) => {
     return sortedKeys.map((el) => {
@@ -30,12 +17,12 @@ const findDiff = (sortedKeys, file1JSON, file2JSON) => {
 };
 
 const gendiffString = (path1, path2) => {
-    const file1JSON = JSON.parse(readFile(path1))
-    const file2JSON = JSON.parse(readFile(path2))
+    const parsedFile1 = parseFile(path1, getFileExtension(path1))
+    const parsedFile2 = parseFile(path2, getFileExtension(path2))
 
-    const sortedKeysUnion = _.union(Object.keys(file1JSON), Object.keys(file2JSON)).sort();
+    const sortedKeysUnion = _.union(Object.keys(parsedFile1), Object.keys(parsedFile2)).sort();
         
-    return findDiff(sortedKeysUnion, file1JSON, file2JSON);
+    return findDiff(sortedKeysUnion, parsedFile1, parsedFile2);
 };
 
 export default gendiffString;
