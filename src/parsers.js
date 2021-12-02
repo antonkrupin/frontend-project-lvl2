@@ -3,8 +3,8 @@ import { readFileSync } from 'fs';
 import path from 'path';
 
 const getFileExtension = (fileName) => {
-    return path.extname(fileName);
-    //return fileName.split('.').pop();
+    //return path.extname(fileName);
+    return fileName.split('.').pop();
 };
 
 const readFile = (pathToFile) => {
