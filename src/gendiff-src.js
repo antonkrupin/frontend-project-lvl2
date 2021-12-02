@@ -1,6 +1,10 @@
 import { readFileSync } from 'fs';
 import _ from 'lodash';
 
+const getFileExtension = (fileName) => {
+    return fileName.split('.').pop();
+};
+
 const readFile = (pathToFile) => {
     return readFileSync(pathToFile, 'utf-8', (err) => {
         if (err) {
