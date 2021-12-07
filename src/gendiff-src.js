@@ -15,21 +15,16 @@ const findDiff = (sortedKeys, file1JSON, file2JSON) => sortedKeys.map((el) => {
 });
 
 const getAllKeys = (obj) => {
-  const array = [];
   const getKeys = (o) => {
     const keys = Object.keys(o);
-    // eslint-disable-next-line no-restricted-syntax
-    for (const key in keys) {
-      if (_.isObject(o[keys[key]])) {
-        array.push(keys[key]);
-        getKeys(o[keys[key]]);
-      } else {
-        array.push(keys[key]);
+    return keys.map((key) => {
+      if (_.isObject(o[key])) {
+        return [key, getKeys(o[key])];
       }
-    }
+      return key;
+    });
   };
-  getKeys(obj);
-  return array;
+  return getKeys(obj);
 };
 
 const gendiffString = (path1, path2) => {
@@ -38,7 +33,7 @@ const gendiffString = (path1, path2) => {
 
   const sortedKeysUnion = _.union(Object.keys(parsedFile1), Object.keys(parsedFile2)).sort();
 
-  console.log(sortedKeysUnion);
+  console.log(_.union(getAllKeys(parsedFile1), getAllKeys(parsedFile1)).sort());
 
   return findDiff(sortedKeysUnion, parsedFile1, parsedFile2);
 };
