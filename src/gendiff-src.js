@@ -31,9 +31,7 @@ const gendiffString = (path1, path2) => {
   const parsedFile1 = parseFile(path1, getFileExtension(path1));
   const parsedFile2 = parseFile(path2, getFileExtension(path2));
 
-  const sortedKeysUnion = _.union(Object.keys(parsedFile1), Object.keys(parsedFile2)).sort();
-
-  console.log(_.union(getAllKeys(parsedFile1), getAllKeys(parsedFile1)).sort());
+  const sortedKeysUnion = _.union(getAllKeys(parsedFile1), getAllKeys(parsedFile2)).sort();
 
   return findDiff(sortedKeysUnion, parsedFile1, parsedFile2);
 };
