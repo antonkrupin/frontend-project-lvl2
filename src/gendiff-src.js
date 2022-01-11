@@ -27,11 +27,30 @@ const getAllKeys = (obj) => {
   return getKeys(obj);
 };
 
+const showKeysValues = (keysArray, obj1, obj2) => {
+  const test = keysArray.map((e) => {
+    if (_.isObject(e)) {
+      return 1;
+    }
+    return 0;
+  });
+  return test;
+};
+
 const gendiffString = (path1, path2) => {
   const parsedFile1 = parseFile(path1, getFileExtension(path1));
   const parsedFile2 = parseFile(path2, getFileExtension(path2));
 
   const sortedKeysUnion = _.union(getAllKeys(parsedFile1), getAllKeys(parsedFile2)).sort();
+
+  const test = _.merge(getAllKeys(parsedFile1), getAllKeys(parsedFile2)).flat();
+  console.log(test);
+  console.log(test.length);
+  // console.log(sortedKeysUnion);
+
+  const test1 = showKeysValues(sortedKeysUnion, parsedFile1, parsedFile2);
+
+  console.log(test1);
 
   return findDiff(sortedKeysUnion, parsedFile1, parsedFile2);
 };
