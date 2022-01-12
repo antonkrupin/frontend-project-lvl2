@@ -50,7 +50,9 @@ const functionForNested = (keys, obj1, obj2) => {
       //console.log(testObj);
       const keys = _.keys(testObj[key]);
     }
-    return findDiff([key], obj1, obj2);
+    const test = findDiff([key], obj1, obj2);
+    //console.log(`!!!!!!!!!! ${test}`);
+    return (` !!!!${key}: ${test}`);
   };
 
   const test = keys.map((el) => {
@@ -59,6 +61,7 @@ const functionForNested = (keys, obj1, obj2) => {
     }*/
     isItObject(el);
   });
+  console.log(`!!!! ${test}`);
   return test;
   /*
   проверяем значения по ключам
