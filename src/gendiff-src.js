@@ -98,6 +98,21 @@ const findDiffNew = (keys, file1JSON, file2JSON) => keys.map((el) => {
     }
     return findDiff([elem], file1JSON, file2JSON);
   };
+
+  const test = keys.reduce((acc, el) => {
+    if (_.has(test1, el) && _.has(test2, el)) {
+      if (test1[el] === test2[el]) {
+        acc[el] = `  ${el}: ${test1[el]}`;
+      };
+      acc[el] = [(`- ${el}: ${test1[el]}`), (`+ ${el}: ${test2[el]}`)];
+    };
+    if(_.has(test1, el)) {
+      acc[el] = `- ${el}: ${test1[el]}`;
+    }
+    acc[el] = `+ ${el}: ${test2[el]}`;
+    return acc;
+  }, {});
+
   return goToTheDeep(el, file1JSON, file2JSON);
   /*if (_.isObject(file1JSON[el]) && _.isObject(file2JSON[el])) {
     const testObj = {};
