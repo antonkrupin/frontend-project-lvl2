@@ -41,6 +41,18 @@ const showKeysValues = (keysArray, obj1, obj2) => {
   return test;
 };
 
+const stringify = (data, replacer = ' ', indentCount = 1, depth = 1) => {
+  const setIndent = (treeDepth) => replacer.repeat(indentCount * treeDepth);
+
+  if (typeof (data) !== 'object') {
+    return String(data);
+  }
+
+  const lines = Object.entries(data).map(([key, val]) => `${setIndent(depth)}${key}: ${stringify(val, replacer, indentCount, depth + 1)}`);
+
+  return ['{', ...lines, `${setIndent(depth - 1)}}`].join('\n');
+};
+
 const gendiffString = (path1, path2) => {
   const parsedFile1 = parseFile(path1, getFileExtension(path1));
   const parsedFile2 = parseFile(path2, getFileExtension(path2));
@@ -50,7 +62,7 @@ const gendiffString = (path1, path2) => {
 
   console.log(uniqSortedKeysUnion);
 
-  return findDiff(sortedKeysUnion, parsedFile1, parsedFile2);
+  return findDiff(uniqSortedKeysUnion, parsedFile1, parsedFile2);
 };
 
 export default gendiffString;
