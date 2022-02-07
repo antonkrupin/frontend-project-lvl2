@@ -7,7 +7,7 @@ const genDiffString = (path1, path2) => {
   const parsedFile2 = parseFile(path2, getFileExtension(path2));
 
   const diff = createDiff(parsedFile1, parsedFile2);
-  return diff;
+  return stylish(diff);
 };
 
 export default genDiffString;
