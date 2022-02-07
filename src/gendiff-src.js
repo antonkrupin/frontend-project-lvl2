@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { getFileExtension, parseFile } from './parsers.js';
 import createDiff from './createDiff.js';
 
