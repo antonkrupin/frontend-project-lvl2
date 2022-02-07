@@ -17,7 +17,6 @@ program
   .argument('<pathToFile1>', 'enter path to file 1')
   .argument('<pathToFile2>', 'enter path to file 2')
   .action((pathToFile1, pathToFile2) => {
-    console.log(stringify(gendiffString(pathToFile1, pathToFile2), '+', '4'));
     console.log(gendiffString(pathToFile1, pathToFile2).join('\n'));
   });
 
