@@ -14,14 +14,14 @@ const stringify = (data, depth) => {
 };
 
 const stylish = (diff) => {
-  const iter = (currentValue, depth) => {
+  const recursion = (currentValue, depth) => {
     const createString = (object) => {
       const unchanged = ' ';
       const added = '+';
       const removed = '-';
       switch (object.status) {
         case 'nested':
-          return `${setIndent(depth)}${unchanged} ${object.key}: ${iter(object.descendants, depth + 1)}`;
+          return `${setIndent(depth)}${unchanged} ${object.key}: ${recursion(object.descendants, depth + 1)}`;
         case 'added':
           return `${setIndent(depth)}${added} ${object.key}: ${stringify(object.value, depth + 1)}`;
         case 'unchanged':
@@ -37,7 +37,7 @@ const stylish = (diff) => {
     const result = currentValue.map((item) => createString(item));
     return ['{', ...result, `${setIndent(depth, spacesCount)}}`].join('\n');
   };
-  return iter(diff, 1);
+  return recursion(diff, 1);
 };
 
 export default stylish;
