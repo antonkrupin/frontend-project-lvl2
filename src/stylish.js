@@ -8,7 +8,7 @@ const setIndent = (treeDepth, spaces = 2) => replacer.repeat(treeDepth * spacesC
 const stringify = (data, depth) => {
   if (!_.isObject(data)) return data;
 
-  const lines = Object.entries(data).map(([key, val]) => `${setIndent(depth)}${key}: ${stringify(val, replacer, depth + 1)}`);
+  const lines = Object.entries(data).map(([key, val]) => `${setIndent(depth)}${key}: ${stringify(val, depth + 1)}`);
 
   return ['{', ...lines, `${setIndent(depth, spacesCount)}}`].join('\n');
 };
