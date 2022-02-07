@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import { getFileExtension, parseFile } from './parsers.js';
+import createDiff from './createDiff.js';
 
 const findDiff = (sortedKeys, file1JSON, file2JSON) => sortedKeys.map((el) => {
   if (_.has(file1JSON, el) && _.has(file2JSON, el)) {
@@ -53,24 +54,6 @@ export const stringify = (data, replacer = ' ', indentCount = 1, depth = 1) => {
   return ['{', ...lines, `${setIndent(depth - 1)}}`].join('\n');
 };
 
-const formDiff = (data1, data2) => {
-  const calcDiff = (node1, node2, key) => {
-    if (!_.has(node1, key)) return { key, status: 'added', value: node2[key] };
-    if (!_.has(node2, key)) return { key, status: 'removed', value: node1[key] };
-    if (_.isObject(node1[key]) && _.isObject(node2[key])) return { key, status: 'nested', descendants: formDiff(node1[key], node2[key]) };
-    if (node1[key] === node2[key]) return { key, status: 'unchanged', value: node1[key] };
-    return {
-      key, status: 'updated', value1: node1[key], value2: node2[key],
-    };
-  };
-
-  const data1Keys = Object.keys(data1);
-  const data2Keys = Object.keys(data2);
-  const sotredAllKeys = _.sortBy(_.union(data1Keys, data2Keys));
-
-  return sotredAllKeys.map((key) => calcDiff(data1, data2, key));
-};
-
 const gendiffString = (path1, path2) => {
   const parsedFile1 = parseFile(path1, getFileExtension(path1));
   const parsedFile2 = parseFile(path2, getFileExtension(path2));
@@ -79,6 +62,14 @@ const gendiffString = (path1, path2) => {
   const uniqSortedKeysUnion = _.uniq(sortedKeysUnion.sort());
 
   return findDiff(uniqSortedKeysUnion, parsedFile1, parsedFile2);
+};
+
+const genDiffString = (path1, path2) => {
+  const parsedFile1 = parseFile(path1, getFileExtension(path1));
+  const parsedFile2 = parseFile(path2, getFileExtension(path2));
+
+  const diff = createDiff(parsedFile1, parsedFile2);
+  return diff;
 };
 
 export default gendiffString;
