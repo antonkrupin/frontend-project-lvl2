@@ -1,16 +1,13 @@
 import _ from 'lodash';
 
-const replacer = ' ';
-const spacesCount = 4;
-
-const setIndent = (treeDepth, spaces = 2) => replacer.repeat(treeDepth * spacesCount - spaces);
+const setIndent = (treeDepth, spaces = 2) => ' '.repeat(treeDepth * 4 - spaces);
 
 const stringify = (data, depth) => {
   if (!_.isObject(data)) return data;
 
   const lines = Object.entries(data).map(([key, val]) => `${setIndent(depth)}${key}: ${stringify(val, depth + 1)}`);
 
-  return ['{', ...lines, `${setIndent(depth, spacesCount)}}`].join('\n');
+  return ['{', ...lines, `${setIndent(depth, 4)}}`].join('\n');
 };
 
 const stylish = (diff) => {
@@ -35,7 +32,7 @@ const stylish = (diff) => {
       }
     };
     const result = currentValue.map((item) => createString(item));
-    return ['{', ...result, `${setIndent(depth, spacesCount)}}`].join('\n');
+    return ['{', ...result, `${setIndent(depth, 4)}}`].join('\n');
   };
   return recursion(diff, 1);
 };
