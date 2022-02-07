@@ -25,7 +25,19 @@ const createString = (data, previousNode) => {
 };
 
 const plain = (diff) => {
-  const recursion
+  const recursion = (data, previousNode) => {
+    const changesString = (data) => {
+      const newPreviousNode = [...previousNode, data.key];
+      if (data.status === 'nested') {
+        return `${recursion(data.descendants, newPreviousNode)}`;
+      }
+      return createString(data, newPreviousNode);
+    };
+
+    const result = data.flatMap((el) => changesString(el));
+    return result.join('\n');
+  };
+  return recursion(diff, []);
 };
 
 export default plain;
