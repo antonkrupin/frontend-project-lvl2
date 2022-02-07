@@ -8,7 +8,7 @@ test('gendiffString_partialNonEqualFiles', () => {
   const file1 = getFixturePath(path1);
   const file2 = getFixturePath(path2);
   const test = ['- follow: false', '  host: hexlet.io', '- proxy: 123.234.53.22', '- timeout: 50', '+ timeout: 20', '+ verbose: true'].join('\n');
-  expect(gendiffString(file1, file2).join('\n')).toEqual(test);
+  expect(gendiffString(file1, file2)).toEqual(test);
 });
 
 test('gendiffString_equalFiles', () => {
@@ -18,7 +18,7 @@ test('gendiffString_equalFiles', () => {
   const file1 = getFixturePath(path1);
   const file2 = getFixturePath(path2);
   const test = ['  follow: false', '  host: hexlet.io', '  proxy: 123.234.53.22', '  timeout: 50'].join('\n');
-  expect(gendiffString(file1, file2).join('\n')).toEqual(test);
+  expect(gendiffString(file1, file2)).toEqual(test);
 });
 
 test('gendiffString_fullNonEqualFiles', () => {
@@ -28,5 +28,5 @@ test('gendiffString_fullNonEqualFiles', () => {
   const file1 = getFixturePath(path1);
   const file2 = getFixturePath(path2);
   const test = ['+ follow: false', '+ proxy: 123.234.53.22', '- timeout: 20', '- verbose: true'].join('\n');
-  expect(gendiffString(file1, file2).join('\n')).toEqual(test);
+  expect(gendiffString(file1, file2)).toEqual(test);
 });
