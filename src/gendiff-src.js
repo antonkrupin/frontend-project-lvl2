@@ -28,20 +28,6 @@ const getAllKeys = (obj) => {
   return getKeys(obj);
 };
 
-const showKeysValues = (keysArray, obj1, obj2) => {
-  const test = keysArray.map((e) => {
-    if (!_.isObject(e)) {
-      console.log('_____');
-      console.log(e);
-      console.log('______');
-      return 1;
-    }
-    console.log(e);
-    return 0;
-  });
-  return test;
-};
-
 export const stringify = (data, replacer = ' ', indentCount = 1, depth = 1) => {
   const setIndent = (treeDepth) => replacer.repeat(indentCount * treeDepth);
 
