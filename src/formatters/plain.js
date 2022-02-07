@@ -30,12 +30,12 @@ const createString = (data, previousNode) => {
 
 const plain = (diff) => {
   const recursion = (data, previousNode) => {
-    const changesString = (data) => {
-      const newPreviousNode = [...previousNode, data.key];
-      if (data.status === 'nested') {
-        return `${recursion(data.descendants, newPreviousNode)}`;
+    const changesString = (obj) => {
+      const newPreviousNode = [...previousNode, obj.key];
+      if (obj.status === 'nested') {
+        return `${recursion(obj.descendants, newPreviousNode)}`;
       }
-      return createString(data, newPreviousNode);
+      return createString(obj, newPreviousNode);
     };
 
     const result = data.flatMap((el) => changesString(el));
