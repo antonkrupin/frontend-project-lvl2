@@ -13,28 +13,31 @@ const stringify = (data, depth) => {
   return ['{', ...lines, `${setIndent(depth, spacesCount)}}`].join('\n');
 };
 
-const makeStylish = (diff) => {
+const stylish = (diff) => {
   const iter = (currentValue, depth) => {
-    const makeString = (object) => {
+    const createString = (object) => {
+      const unchanged = ' ';
+      const added = '+';
+      const removed = '-';
       switch (object.status) {
         case 'nested':
-          return `${setIndent(depth)}${signUnchanged} ${object.key}: ${iter(object.descendants, depth + 1)}`;
+          return `${setIndent(depth)}${unchanged} ${object.key}: ${iter(object.descendants, depth + 1)}`;
         case 'added':
-          return `${setIndent(depth)}${signAdded} ${object.key}: ${stringify(object.value, depth + 1)}`;
+          return `${setIndent(depth)}${added} ${object.key}: ${stringify(object.value, depth + 1)}`;
         case 'unchanged':
-          return `${setIndent(depth)}${signUnchanged} ${object.key}: ${stringify(object.value, depth + 1)}`;
+          return `${setIndent(depth)}${unchanged} ${object.key}: ${stringify(object.value, depth + 1)}`;
         case 'removed':
-          return `${setIndent(depth)}${signRemoved} ${object.key}: ${stringify(object.value, depth + 1)}`;
+          return `${setIndent(depth)}${removed} ${object.key}: ${stringify(object.value, depth + 1)}`;
         case 'updated':
-          return `${setIndent(depth)}${signRemoved} ${object.key}: ${stringify(object.value1, depth + 1)}\n${setIndent(depth)}${signAdded} ${object.key}: ${stringify(object.value2, depth + 1)}`;
+          return `${setIndent(depth)}${removed} ${object.key}: ${stringify(object.value1, depth + 1)}\n${setIndent(depth)}${added} ${object.key}: ${stringify(object.value2, depth + 1)}`;
         default:
           throw new Error(`Unknown status: '${object.status}'!`);
       }
     };
-    const result = currentValue.map((item) => makeString(item));
+    const result = currentValue.map((item) => createString(item));
     return ['{', ...result, `${setIndent(depth, spacesCount)}}`].join('\n');
   };
   return iter(diff, 1);
 };
 
-export default makeStylish;
+export default stylish;
