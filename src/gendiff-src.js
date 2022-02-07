@@ -1,5 +1,5 @@
 import { getFileExtension, parseFile } from './parsers.js';
-import stylish from './stylish.js';
+import stylish from './formatters/stylish.js';
 import createDiff from './createDiff.js';
 
 const genDiffString = (path1, path2) => {
