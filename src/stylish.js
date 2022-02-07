@@ -1,15 +1,16 @@
 import _ from 'lodash';
 
-export const stringify = (data, replacer = ' ', indentCount = 1, depth = 1) => {
-  const setIndent = (treeDepth) => replacer.repeat(indentCount * treeDepth);
+const replacer = ' ';
+const spacesCount = 4;
 
-  if (typeof (data) !== 'object') {
-    return String(data);
-  }
+const setIndent = (treeDepth, spaces = 2) => replacer.repeat(treeDepth * spacesCount - spaces);
 
-  const lines = Object.entries(data).map(([key, val]) => `${setIndent(depth)}${key}: ${stringify(val, replacer, indentCount, depth + 1)}`);
+const stringify = (data, depth) => {
+  if (!_.isObject(data)) return data;
 
-  return ['{', ...lines, `${setIndent(depth - 1)}}`].join('\n');
+  const lines = Object.entries(data).map(([key, val]) => `${setIndent(depth)}${key}: ${stringify(val, replacer, depth + 1)}`);
+
+  return ['{', ...lines, `${setIndent(depth, spacesCount)}}`].join('\n');
 };
 
 const makeStylish = (diff) => {
