@@ -18,7 +18,6 @@ program
   .action((pathToFile1, pathToFile2) => {
     const diff = gendiffString(pathToFile1, pathToFile2);
     console.log(diff);
-    //console.log(gendiffString(pathToFile1, pathToFile2).join('\n'));
   });
 
 program.parse();
