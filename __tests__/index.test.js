@@ -30,3 +30,13 @@ test('gendiffString_fullNonEqualFiles', () => {
   const test = ['{', '  + follow: false', '  + proxy: 123.234.53.22', '  - timeout: 20', '  - verbose: true', '}'].join('\n');
   expect(gendiffString(file1, file2)).toEqual(test);
 });
+
+test('gendiffString_PlainFormatter_FullNonEqualFiles', () => {
+  const path1 = 'fullNonEqualFile1.json';
+  const path2 = 'fullNonEqualFile2.json';
+  const getFixturePath = (filename) => path.join('.', '__fixtures__', filename);
+  const file1 = getFixturePath(path1);
+  const file2 = getFixturePath(path2);
+  const test = ['Property follow was removed', 'Property proxy was removed', 'Property timeout was updated. From 50 to 20', 'Property verbose was added with value: true'].join('\n');
+  expect(gendiffString(file1, file2, 'plain')).toEqual(test);
+});
