@@ -11,7 +11,7 @@ const checkValue = (value) => {
 };
 
 const createString = (data, previousNode) => {
-  const stringTemplate = `Property ${previousNode.join('.')} was ${data.status}`;
+  const stringTemplate = `Property '${previousNode.join('.')}' was ${data.status}`;
 
   if (data.status === 'added') {
     return `${stringTemplate} with value: ${checkValue(data.value)}`;
