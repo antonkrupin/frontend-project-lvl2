@@ -37,6 +37,6 @@ test('gendiffString_PlainFormatter_FullNonEqualFiles', () => {
   const getFixturePath = (filename) => path.join('.', '__fixtures__', filename);
   const file1 = getFixturePath(path1);
   const file2 = getFixturePath(path2);
-  const test = ['Property follow was removed', 'Property proxy was removed', 'Property timeout was updated. From 50 to 20', 'Property verbose was added with value: true'].join('\n');
+  const test = ['Property follow was added with value: false', 'Property proxy was added with value: 123.234.53.22', 'Property timeout was removed', 'Property verbose was removed'].join('\n');
   expect(gendiffString(file1, file2, 'plain')).toEqual(test);
 });
