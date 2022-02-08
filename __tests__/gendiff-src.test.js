@@ -8,6 +8,8 @@ test('gendiffString_partialNonEqualFiles', () => {
   const file1 = getFixturePath(path1);
   const file2 = getFixturePath(path2);
   const test = ['- follow: false', '  host: hexlet.io', '- proxy: 123.234.53.22', '- timeout: 50', '+ timeout: 20', '+ verbose: true'].join('\n');
+  console.log('This is test!!!!!');
+  console.log(test);
   expect(gendiffString(file1, file2)).toEqual(test);
 });
 
