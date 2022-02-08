@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 const howMuchSpaces = 4;
 
-const setIndent = (depth, spaces = 2) => ' '.repeat(depth * howMuchSpaces - spaces);
+const setIndent = (treeDepth, spaces = 2) => ' '.repeat(treeDepth * howMuchSpaces - spaces);
 
 const stringify = (data, depth) => {
   if (!_.isObject(data)) return data;
