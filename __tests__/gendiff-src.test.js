@@ -1,5 +1,5 @@
 import path from 'path';
-import gendiffString from '../src/gendiff-src.js';
+import gendiffString from '../src/index.js';
 
 test('gendiffString_partialNonEqualFiles', () => {
   const path1 = 'file1.json';
