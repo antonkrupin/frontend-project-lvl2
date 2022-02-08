@@ -1,7 +1,6 @@
-import json from 'js-yaml/lib/schema/json';
 import stylish from './stylish.js';
 import plain from './plain.js';
-import jsonFormat from './json.js';
+import json from './json.js';
 
 // eslint-disable-next-line consistent-return
 const formattedDiff = (diff, formatType) => {
@@ -12,7 +11,7 @@ const formattedDiff = (diff, formatType) => {
     case 'plain':
       return plain(diff);
     case 'json':
-      return jsonFormat(diff);
+      return json(diff);
   }
 };
 
