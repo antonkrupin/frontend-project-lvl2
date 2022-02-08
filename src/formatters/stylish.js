@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const howMuchSpaces = 4;
+const howMuchSpaces = 6;
 
 const setIndent = (treeDepth, spaces = 2) => ' '.repeat(treeDepth * howMuchSpaces - spaces);
 
