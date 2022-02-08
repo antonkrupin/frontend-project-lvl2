@@ -5,7 +5,7 @@ const checkValue = (value) => {
     return '[complex value]';
   }
   if (typeof (value) === 'string') {
-    return `${value}`;
+    return `'${value}'`;
   }
   return value;
 };
