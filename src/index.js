@@ -1,4 +1,4 @@
-import readFileSync from 'fs';
+import { readFileSync } from 'fs';
 import path from 'path';
 import parseFile from './parsers.js';
 import createDiff from './createDiff.js';
