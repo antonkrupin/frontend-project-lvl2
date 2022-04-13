@@ -12,10 +12,6 @@ const readFile = (pathToFile) => readFileSync(pathToFile, 'utf-8', (err) => {
   }
 });
 
-/*
-comment for something
-*/
-
 const genDiffString = (path1, path2, formatType = 'stylish') => {
   const parsedFile1 = parseFile(readFile(path1), getFileExtension(path1));
   const parsedFile2 = parseFile(readFile(path2), getFileExtension(path2));
