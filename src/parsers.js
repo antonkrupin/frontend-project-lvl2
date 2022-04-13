@@ -9,7 +9,7 @@ const readFile = (pathToFile) => readFileSync(pathToFile, 'utf-8', (err) => {
   }
 }); */
 
-export const parseFile = (file, fileExtension) => {
+const parseFile = (file, fileExtension) => {
   if (fileExtension === '.yml' || fileExtension === '.yaml') {
     return _.load(file);
   }
