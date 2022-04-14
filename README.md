@@ -9,3 +9,5 @@
 
 ### Test Coverage
 [![Actions Status](https://github.com/antonkrupin/frontend-project-lvl2/workflows/test-coverage/badge.svg)](https://github.com/antonkrupin/frontend-project-lvl2/actions)
+
+[![test-coverage CI](https://github.com/antonkrupin/frontend-project-lvl2/actions/workflows/test-coverage.yml/badge.svg)](https://github.com/antonkrupin/frontend-project-lvl2/actions/workflows/test-coverage.yml)
