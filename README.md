@@ -6,3 +6,6 @@
 
 ### CodeClimate badge
 [![Maintainability](https://api.codeclimate.com/v1/badges/6c05677295cdb372ee8e/maintainability)](https://codeclimate.com/github/antonkrupin/frontend-project-lvl2/maintainability)
+
+### Test Coverage
+[![Actions Status](https://github.com/antonkrupin/frontend-project-lvl2/actions/workflows/test-coverage/badge.svg)](https://github.com/antonkrupin/frontend-project-lvl2/actions)
