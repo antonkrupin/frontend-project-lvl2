@@ -19,7 +19,7 @@ jobs:
       - name: test & publish coverage
         uses: actions/setup-node@v2
         env: 
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          CC_TEST_REPORTER_ID: a9cbc2c520b684403d5cead73323d6763deb85b1e2494a6f2999c24352430c42
         with:
           coverageCommand: make test-coverage
           debug: true
