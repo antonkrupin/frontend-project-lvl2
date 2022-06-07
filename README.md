@@ -1,5 +1,7 @@
 Вычислитель отличий
 
+Утилита для сравнения файлов
+
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/antonkrupin/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/antonkrupin/frontend-project-lvl2/actions)
 
