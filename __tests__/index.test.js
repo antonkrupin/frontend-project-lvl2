@@ -13,9 +13,8 @@ const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8'
 const formats = ['json', 'yml'];
 
 const resultStylish = readFile('result_stylish.txt');
-const resultStylish1 = readFile('result_stylish1.txt');
 const resultPlain = readFile('result_plain.txt');
-const resultJson = readFile('result_json.json');
+//const resultJson = readFile('result_json.json');
 
 test.each(formats)('different formats of files %s', (format) => {
   const filePath1 = getFixturePath(`file1.${format}`);
