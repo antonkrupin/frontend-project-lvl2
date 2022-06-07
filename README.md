@@ -11,7 +11,7 @@
 [![test-coverage CI](https://github.com/antonkrupin/frontend-project-lvl2/actions/workflows/test-coverage.yml/badge.svg)](https://github.com/antonkrupin/frontend-project-lvl2/actions/workflows/test-coverage.yml)
 
 
-**Вычислитель отличий**
+###**Вычислитель отличий**
 
 Утилита для сравнения файлов.
 
