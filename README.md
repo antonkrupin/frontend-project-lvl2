@@ -1,6 +1,11 @@
 Вычислитель отличий
 
-Утилита для сравнения файлов
+Утилита для сравнения файлов.
+
+Для установки у себя - склонируйте репозиторий на свой компьютер. В терминале запустите команду - **make install**.
+
+Использование - в терминале нужно прописать команду **gendiff** и передать в нее два пути до файлов, которые нужно сравнить. Пути могут быть абсолютными или относительными.
+Пример команды - **gendiff ./pathToFile1 ./pathToFile2**
 
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/antonkrupin/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/antonkrupin/frontend-project-lvl2/actions)
