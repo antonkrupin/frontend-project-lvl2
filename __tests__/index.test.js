@@ -14,7 +14,6 @@ const formats = ['json', 'yml'];
 
 const resultStylish = readFile('result_stylish.txt');
 const resultPlain = readFile('result_plain.txt');
-//const resultJson = readFile('result_json.json');
 
 test.each(formats)('different formats of files %s', (format) => {
   const filePath1 = getFixturePath(`file1.${format}`);
@@ -24,7 +23,6 @@ test.each(formats)('different formats of files %s', (format) => {
 
   expect(gendiffString(filePath1, filePath2, 'stylish')).toBe(resultStylish);
   expect(gendiffString(filePath1, filePath2, 'plain')).toBe(resultPlain);
-  //expect(gendiffString(filePath1, filePath2, 'json')).toBe(resultJson);
 });
 
 const wrongFormats = ['txt'];
