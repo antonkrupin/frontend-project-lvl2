@@ -28,13 +28,6 @@ test.each(formats)('different formats of files %s', (format) => {
   //expect(gendiffString(filePath1, filePath2, 'json')).toBe(resultJson);
 });
 
-/*const formats1 = ['json'];
-test.each(formats1)('nested files json format', (format) => {
-  const filePath1 = getFixturePath(`fileNested1.${format}`);
-  const filePath2 = getFixturePath(`fileNested2.${format}`);
-  expect(gendiffString(filePath1, filePath2, 'stylish')).toBe(resultStylish1);
-});*/
-
 const wrongFormats = ['txt'];
 
 test.each(wrongFormats)('wrong formats of files %s', (format) => {
