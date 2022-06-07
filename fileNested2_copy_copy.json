@@ -1,8 +1,0 @@
-{
-  "test": 2,
-  "common": {
-    "setting1": "Value 1",
-    "setting2": 400,
-    "setting6": true
-  }
-}
