@@ -20,7 +20,7 @@
 Использование - в терминале нужно прописать команду **gendiff** и передать в нее два пути до файлов, которые нужно сравнить. Пути могут быть абсолютными или относительными.
 Пример команды - **gendiff ./pathToFile1 ./pathToFile2**
 
-**Пример использования утилиты:**
+### **Пример использования утилиты:**
 
 1. Для сравнения двух простых файлов в формате .json: [![asciicast](https://asciinema.org/a/lz05JethmmL1YEaRYHiODQyYB.svg)](https://asciinema.org/a/lz05JethmmL1YEaRYHiODQyYB)
 2. Для сравнения двух простых файлов в формате .yml: [![asciicast](https://asciinema.org/a/cx0dZsEDslpAabP3xqH7K5OMA.svg)](https://asciinema.org/a/cx0dZsEDslpAabP3xqH7K5OMA)
