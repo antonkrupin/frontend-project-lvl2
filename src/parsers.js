@@ -6,7 +6,7 @@ const parseFile = (file, fileExtension) => {
   }
   return JSON.parse(file); */
 
-  switch (fileExtension) {
+  switch (fileExtension.slice(1)) {
     case 'yml' || 'yaml':
       return _.load(file);
     default:
