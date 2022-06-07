@@ -10,7 +10,8 @@
 **Пример использования утилиты:**
 
 1. Для сравнения двух простых файлов в формате .json: [![asciicast](https://asciinema.org/a/lz05JethmmL1YEaRYHiODQyYB.svg)](https://asciinema.org/a/lz05JethmmL1YEaRYHiODQyYB)
-2. 
+2. Для сравнения двух простых файлов в формате .yml: [![asciicast](https://asciinema.org/a/cx0dZsEDslpAabP3xqH7K5OMA.svg)](https://asciinema.org/a/cx0dZsEDslpAabP3xqH7K5OMA)
+3. Для сравнения двух файлов с глубокой вложенной структурой .json: [![asciicast](https://asciinema.org/a/1c2UR4E9TuiNEz6Lh0stdYB2S.svg)](https://asciinema.org/a/1c2UR4E9TuiNEz6Lh0stdYB2S)
 
 
 ### Hexlet tests and linter status:
