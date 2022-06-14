@@ -20,5 +20,5 @@ jobs:
         uses: paambaati/codeclimate-action@v2.7.4
         env: 
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        with:
-          coverageCommand: npx jest --coverage
+      - run: make install
+      - run: npx jest --coverage
