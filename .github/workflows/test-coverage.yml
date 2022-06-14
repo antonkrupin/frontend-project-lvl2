@@ -21,5 +21,4 @@ jobs:
         env: 
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageCommand: make install
-          coverageCommand: npx jest --coverage
+          coverageCommand: make install, npx jest --coverage
