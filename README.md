@@ -10,6 +10,8 @@
 ### Test Coverage
 [![test-coverage CI](https://github.com/antonkrupin/frontend-project-lvl2/actions/workflows/test-coverage.yml/badge.svg)](https://github.com/antonkrupin/frontend-project-lvl2/actions/workflows/test-coverage.yml)
 
+[![Node.js CI](https://github.com/antonkrupin/frontend-project-lvl2/actions/workflows/nodejs.yml/badge.svg)](https://github.com/antonkrupin/frontend-project-lvl2/actions/workflows/nodejs.yml)
+
 
 ### **Вычислитель отличий**
 
