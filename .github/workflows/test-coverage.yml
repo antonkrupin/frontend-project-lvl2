@@ -16,6 +16,7 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+      - run: make install 
       - name: test & publish coverage
         uses: paambaati/codeclimate-action@v2.7.4
         env: 
