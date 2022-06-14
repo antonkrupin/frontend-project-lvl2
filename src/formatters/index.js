@@ -2,9 +2,7 @@ import stylish from './stylish.js';
 import plain from './plain.js';
 import json from './json.js';
 
-// eslint-disable-next-line consistent-return
 const formattedDiff = (diff, formatType) => {
-  // eslint-disable-next-line default-case
   switch (formatType) {
     case 'stylish':
       return stylish(diff);
@@ -12,6 +10,8 @@ const formattedDiff = (diff, formatType) => {
       return plain(diff);
     case 'json':
       return json(diff);
+    default:
+      throw new Error('Wrong Formatter type. Use - stylish, plain or json');
   }
 };
 
