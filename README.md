@@ -7,7 +7,10 @@
 ### CodeClimate badge
 [![Maintainability](https://api.codeclimate.com/v1/badges/6c05677295cdb372ee8e/maintainability)](https://codeclimate.com/github/antonkrupin/frontend-project-lvl2/maintainability)
 
-### Test Coverage
+### Lint
+[![Node.js CI](https://github.com/antonkrupin/frontend-project-lvl2/actions/workflows/nodejs.yml/badge.svg)](https://github.com/antonkrupin/frontend-project-lvl2/actions/workflows/nodejs.yml)
+
+### Tests
 [![test-coverage CI](https://github.com/antonkrupin/frontend-project-lvl2/actions/workflows/test-coverage.yml/badge.svg)](https://github.com/antonkrupin/frontend-project-lvl2/actions/workflows/test-coverage.yml)
 
 
