@@ -1,9 +1,9 @@
-import _ from 'js-yaml';
+import jsYaml from 'js-yaml';
 
 const parseFile = (file, fileExtension) => {
   switch (fileExtension.slice(1)) {
     case 'yml' || 'yaml':
-      return _.load(file);
+      return jsYaml.load(file);
     case 'json':
       return JSON.parse(file);
     default:
