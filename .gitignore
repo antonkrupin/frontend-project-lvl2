@@ -1,2 +1,9 @@
 /node_modules
 /.vscode
+
+# я не смог понять какой coverage нужно сюда добавить
+# в проекте я не нашел ни директории, ни файла с таким названием
+# возможно это файл с настройками для Jest?
+#
+# https://github.com/antonkrupin/frontend-project-lvl2/blob/f60e9c14c4bcd8f18a00186f6bfdb08df4724a6c/.gitignore#L1
+# сюда стоит добавить coverage, чтобы случайно в репозиторий не попала
