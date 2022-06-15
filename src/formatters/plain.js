@@ -11,17 +11,17 @@ const checkValue = (value) => {
 };
 
 const createString = (data, previousNode) => {
-  const stringTemplate = `Property '${previousNode.join('.')}' was ${data.status}`;
+  const stringTemplate = `Property '${previousNode.join('.')}' was ${data.type}`;
 
-  if (data.status === 'added') {
+  if (data.type === 'added') {
     return `${stringTemplate} with value: ${checkValue(data.value)}`;
   }
 
-  if (data.status === 'removed') {
+  if (data.type === 'removed') {
     return `${stringTemplate}`;
   }
 
-  if (data.status === 'updated') {
+  if (data.type === 'updated') {
     return `${stringTemplate}. From ${checkValue(data.value1)} to ${checkValue(data.value2)}`;
   }
 
@@ -32,7 +32,7 @@ const plain = (diff) => {
   const recursion = (data, previousNode) => {
     const changesString = (obj) => {
       const newPreviousNode = [...previousNode, obj.key];
-      if (obj.status === 'nested') {
+      if (obj.type === 'nested') {
         return `${recursion(obj.descendants, newPreviousNode)}`;
       }
       return createString(obj, newPreviousNode);

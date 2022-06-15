@@ -18,7 +18,7 @@ const stylish = (diff) => {
       const unchanged = ' ';
       const added = '+';
       const removed = '-';
-      switch (object.status) {
+      switch (object.type) {
         case 'nested':
           return `${setIndent(depth)}${unchanged} ${object.key}: ${recursion(object.descendants, depth + 1)}`;
         case 'added':
@@ -30,7 +30,7 @@ const stylish = (diff) => {
         case 'updated':
           return `${setIndent(depth)}${removed} ${object.key}: ${stringify(object.value1, depth + 1)}\n${setIndent(depth)}${added} ${object.key}: ${stringify(object.value2, depth + 1)}`;
         default:
-          throw new Error(`Unknown status: '${object.status}'!`);
+          throw new Error(`Unknown status: '${object.type}'!`);
       }
     };
     const result = currentValue.map((item) => createString(item));
