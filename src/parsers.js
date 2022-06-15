@@ -7,7 +7,7 @@ const parseFile = (file, fileExtension) => {
     case 'json':
       return JSON.parse(file);
     default:
-      throw new Error('Wrong file format. Use json or yaml format.');
+      throw new Error('Wrong file format. Use JSON or YAML format.');
   }
 };
 
