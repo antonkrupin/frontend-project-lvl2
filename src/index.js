@@ -6,11 +6,7 @@ import formattedDiff from './formatters/index.js';
 
 const getFileExtension = (fileName) => path.extname(fileName);
 
-const readFile = (pathToFile) => readFileSync(pathToFile, 'utf-8', (err) => {
-  if (err) {
-    console.log(err);
-  }
-});
+const readFile = (pathToFile) => readFileSync(pathToFile, 'utf-8');
 
 const genDiffString = (path1, path2, formatType = 'stylish') => {
   const parsedFile1 = parseFile(readFile(path1), getFileExtension(path1));
